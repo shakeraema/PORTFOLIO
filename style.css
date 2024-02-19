@@ -55,7 +55,7 @@ nav ul li a::after{
     content: '';
     width: 0;
     height: 3px;
-    background: #7E5109;
+    background: darkred;
     position: absolute;
     left: 0;
     bottom: -6px;
@@ -135,7 +135,7 @@ nav ul li a:hover::after{
     content: '';
     width: 0;
     height: 3px;
-    background: #7E5109;
+    background: darkred;
     position: absolute;
     left: 0;
     bottom: -8px;
@@ -144,4 +144,76 @@ nav ul li a:hover::after{
 .tab-links.active-link::after
 {
     width: 50%;
+}
+
+.tab-contents ul li
+{
+    list-style: none;
+    margin: 10px 0;
+}
+
+.tab-contents ul li span
+{
+    color:brown;
+    font-size: 14px;
+}
+
+.tab-contents
+{
+    display: none;
+}
+.tab-contents.active-tab
+{
+    display: block;
+}
+
+/* ----------------------Projects----------------- */
+
+#services
+{
+    padding: 30px 0;
+}
+
+.services-list
+{
+    display: -ms-grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 60px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.services-list div{
+    background-color: #7D6608;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+.services-list div i
+{
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.services-list div h2
+{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.services-list div a
+{
+    text-decoration: none;
+    color:aliceblue;
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.services-list div:hover{
+    background:darkolivegreen;
+    transform: translateY(-10px);
 }

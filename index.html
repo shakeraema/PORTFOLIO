@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shakera Jannat Ema Portfolio Website</title>
     <link rel="stylesheet" href="style.css">
-
+    <script src="https://kit.fontawesome.com/4f0ccad5cb.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="header">
@@ -32,7 +32,7 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="img/user3.png" >
+                    <img src="img/User1.png" >
                 </div>
                 <div class="about-col-2">
                     <h1 class="subtitle">About Me</h1>
@@ -50,14 +50,98 @@
                         
                         Happy coding! 🖥💡</p>
                     <div class="tab-titles">
-                        <p class="tab-links active-link">Skills</p>
-                        <p class="tab-links">Experience</p>
-                        <p class="tab-links">Education</p>
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>C, C++</span><br>For Problem solving</li>
+                            <li><span>HTML, CSS, JavaScript</span><br>Web app Development</li>
+                            <li><span>Java, React Native</span><br>Building Android/iOS apps</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2024</span><br>Data Collector about a thesis for a while at Bengal AI</li>
+                            <li><span>2023</span><br>a finalist in the ICPC Algo Queen Contest 2023
+                            <p>Rank: 92th</p></li>
+                            <li><span>2023</span><br>Served as an organizer in the Decoration and Cultural team at SUST SWE Technovent</li>
+                            <li><span>2022</span><br>Served as a volunteer in the Registration team and the Helpline at BDApps National Hackathon Regional Round, Sylhet</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2022 - Present</span><br><h3>B.Sc. - Software Engineering</h3>Shahjalal University of Science and Technology, Sylhet</li>
+                            <li><span>2018 - 2020</span><br><h3>HSC</h3>MC College, Sylhet</li>
+                            <li><span>2013-2017</span><br><h3>SSC</h3>Govt. S.C. Girls' High School,Sunamganj</li>
+                        </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
+<!-- -----------------------Services-------------- -->
+<div id="services">
+    <div class="container">
+        <h1 class="subtitle">My Projects</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-gamepad"></i>
+                <h2>Game-1</h2>
+                <p>This is my first snake game project of first year second semester</p>
+                <!-- <p>Here is the Github Link of this project: <a href="https://github.com/shakeraema/GameProject.git">Snake-Game</a></p> -->
+                <a href="#">Learn More</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-gamepad"></i>
+                <h2>Game-2</h2>
+                <p>This is my own game based on a 2048 game plot. In this game, the player must combine tiles containing the same numbers until they reach the number 2560. The tiles can contain only integer values starting from 2,3,5 and those are multiples of 5, like 5, 10, 20,40 , 80, and so on.
+
+                    Ideally, the player should reach the 2560 tile within the smallest number of steps. In every step when you combine the similar tiles, the scores will be increased. The board has dimension of 4 x 4 tiles, so that it can fit up to 16 tiles. If the board is full, and there is no possible move to make like merging tiles together - the game is over.
+                    
+                    Initially, there will be various twos and threes tiles in the game.  A player must combine these two and three tiles to get ‘5’ tiles. There will be five and ten tiles also. You cannot add up two ‘2’ tiles. When you get the fives tiles, you can only add these fives tiles with the other fives tiles, which in turn makes new tiles ’10’ tiles. This process continues until there are no shuffling positions left. The target is 2560. Players can continue beyond that to reach higher scores.</p>
+                <a href="https://github.com/shakeraema/2560GAME.git">Learn More</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-calculator"></i>
+                <h2>Calculator</h2>
+                <p>An assignment of making a calculator with JavaFX</p>
+                <a href="https://github.com/shakeraema/CALCULATOR_JavaFX.git">Learn More</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-calculator"></i>
+                <h2>Calculator</h2>
+                <p>An assignment of making a calculator with JavaFX</p>
+                <a href="https://github.com/shakeraema/CALCULATOR_JavaFX.git">Learn More</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- --------------------------Portfolio------------------------- -->
+
+<div id="portfolio">
+    <div class="container">
+        <h1 class="subtitle">My Work</h1>
+    </div>
+</div>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname)
+        {
+            for(tablink of tablinks)
+            {
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents)
+            {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
 </body>
 </html>
