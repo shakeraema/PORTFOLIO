@@ -4,6 +4,11 @@
     font-family: 'Poppins', sans-serif;
     box-sizing:border-box;
 }
+html
+{
+    scroll-behavior: smooth;
+}
+
 body
 {
     /* background: #996515;
@@ -76,7 +81,7 @@ nav ul li a:hover::after{
 }
 
 .header-text h1 span{
-    color:#7D6608;
+    color:#443818;
     
 }
 
@@ -175,7 +180,7 @@ nav ul li a:hover::after{
     padding: 30px 0;
 }
 
-.services-list
+.projects-list
 {
     display: -ms-grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -184,7 +189,7 @@ nav ul li a:hover::after{
     margin-bottom: 10px;
 }
 
-.services-list div{
+.projects-list div{
     background-color: #7D6608;
     padding: 40px;
     font-size: 13px;
@@ -192,20 +197,20 @@ nav ul li a:hover::after{
     border-radius: 10px;
     transition: background 0.5s, transform 0.5s;
 }
-.services-list div i
+.projects-list div i
 {
     font-size: 50px;
     margin-bottom: 30px;
 }
 
-.services-list div h2
+.projects-list div h2
 {
     font-size: 30px;
     font-weight: 500;
     margin-bottom: 15px;
 }
 
-.services-list div a
+.projects-list div a
 {
     text-decoration:double;
     color:antiquewhite;
@@ -214,7 +219,7 @@ nav ul li a:hover::after{
     display: inline-block;
 }
 
-.services-list div:hover{
+.projects-list div:hover{
     background:darkolivegreen;
     transform: translateY(-10px);
 }
@@ -270,15 +275,10 @@ nav ul li a:hover::after{
 
 .btn.btn2
 {
-    text-decoration: none;
-    display: inline-block;
-    background:darkgreen;
-    color: antiquewhite;
-    border-color: darkgreen;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+   display: inline-block;
+   background: darkgreen;
+   color:antiquewhite;
+   text-decoration: none;
 }
 
 .btn.btn2 a
@@ -341,7 +341,7 @@ nav .fas{
     display: none;
 }
 
-nav .fas{
+nav .fa-solid{
     display: none;
 }
 
@@ -356,23 +356,73 @@ nav .fas{
         margin-top: 100%;
         font-size: 16px;
     }
-    /* .header-text h1{
+    .header-text h1{
         font-size: 30px;
 
-    } */
+    }
 
     
-nav i{
+nav .fas{
     display: block;
     font-size: 25px;
 }
+nav .fa-solid{
+    display: block;
+    font-size: 25px;
+}
+
 nav ul{
     background: #7D6608;
     position: fixed;
     top:0;
-    right: 0;
+    right: -200px; 
     width: 200px;
     height: 100vh;
     padding-top: 50px;
+    z-index: 2;
+    transition: right 0.5s;
 }
+nav ul li{
+    display: block;
+    margin: 25px;
+}
+nav ul .fas{
+    position: absolute;
+    top:25px;
+    left: 25px;
+    cursor: pointer;
+}
+
+    .subtitle
+    {
+        font-size: 40px;
+    }
+
+    .about-col-1, .about-col-2{
+        flex-basis: 100%;
+    }
+    .about-col-1{
+        margin-bottom: 30px;
+    }
+
+    .about-col-2{
+        font-size: 14px;
+    }
+
+    .tab-links{
+        font-size: 16px;
+        margin-right: 20px;
+    }
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
+    .copyright{
+        font-size: 14px;
+    }
+}
+
+#msg{
+    color:burlywood;
+    margin-top: -30px;
+    display: block;
 }

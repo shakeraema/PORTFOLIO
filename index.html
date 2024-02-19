@@ -12,15 +12,14 @@
         <div class="container">
             <nav>
                 <img src="img/SHAKERA.png" class="logo">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <!-- <li><a href="#">Portfolio</a></li> -->
-                    <li><a href="#">Contact</a></li>
-                    <i class="fas fa-times"></i>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
                 </ul>
-                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
                 <p>UI/UX Designer</p>
@@ -37,19 +36,7 @@
                 </div>
                 <div class="about-col-2">
                     <h1 class="subtitle">About Me</h1>
-                    <p>👋 Hello World! I'm Shakera Jannat Ema, a passionate Software Engineering student in my third year, diving deep into the realms of code and creativity. 🚀<br>
-
-                        🎓 Currently honing my skills at Shahjalal University of Science and Technology, I'm on a journey to transform ideas into elegant and efficient software solutions. My academic journey has equipped me with a strong foundation in algorithms, data structures, and various programming languages.<br>
-                        
-                        💻 As an avid coder, I've embarked on several exciting projects during my academic journey. From crafting intuitive web applications to solving complex algorithmic challenges, my GitHub is a canvas of my coding adventures. Explore my repositories to witness the evolution of my skills and the passion I pour into my projects.<br>
-                        
-                        🚀 My areas of interest include web development, machine learning, software architecture and I'm always eager to learn and explore new technologies. I believe in the power of collaboration and open-source contributions to push the boundaries of innovation.
-                        
-                        <br>🌐 When I'm not immersed in code, you'll find me exploring the latest trends in technology, reading tech blogs, and occasionally indulging in a game of code golf. I am a firm believer in the philosophy of continuous learning and staying curious in the ever-evolving world of software engineering.
-                        
-                        <br>📫 Let's connect and collaborate! Whether it's discussing code, exploring new projects, or sharing insights on the latest tech trends, I'm always open to engaging with the vibrant developer community. 
-                        
-                        Happy coding! 🖥💡</p>
+                    <p>Greetings! I'm Shakera, a tech enthusiast with an insatiable curiosity for learning. In the ever-evolving world of technology, I thrive on staying ahead of the curve, immersing myself in the latest innovations. My journey is fueled by a deep passion for design and development, where I find joy in transforming ideas into tangible solutions. I firmly believe in the transformative power of self-learning to drive innovation and personal growth. This philosophy shapes me into a versatile and forward-thinking individual, constantly generating new ideas and exploring diverse experiences. Beyond the lines of code, I appreciate the harmonious blend of functionality and design aesthetics, seeking to create impactful and visually captivating experiences. My portfolio reflects not just my projects but a narrative of continuous exploration and growth. Join me in navigating the dynamic landscape of technology, where each challenge is an opportunity to innovate and learn.</p>
                     <div class="tab-titles">
                         <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
                         <p class="tab-links" onclick="opentab('experience')">Experience</p>
@@ -86,7 +73,7 @@
 <div id="projects">
     <div class="container">
         <h1 class="subtitle">My Projects</h1>
-        <div class="services-list">
+        <div class="projects-list">
             <div>
                 <i class="fa-solid fa-gamepad"></i>
                 <h2>Game-1</h2>
@@ -139,7 +126,7 @@
     <div class="container">
         <div class="row">
             <div class="contact-left">
-                <h1 class="sub-title">Contact Me</h1>
+                <h1 class="subtitle">Contact Me</h1>
                 <p><a href="mailto:shakera29@student.sust.edu"><i class="fa-solid fa-envelope"></i>shakera29@student.sust.edu</a></p>
                 <p><a href="tel:+8801854088947"><i class="fa-solid fa-phone-volume"></i>+8801854088947</a></p>
                 <br>
@@ -149,15 +136,16 @@
                     <a href="https://www.instagram.com/shakera_ema/"><i class="fa-brands fa-square-instagram"></i></a>
                     <a href="https://www.linkedin.com/in/shakera-ema-994932238/"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
-                <button class="btn btn2"><a href="https://shakeraresume.netlify.app/">See My CV</a></button>
+                <a href="https://shakeraresume.netlify.app/" class="btn btn2" role="button">See My CV</a>
             </div>
             <div class="contact-right">
-                <form>
+                <form name="submit-to-google-sheet">
                     <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
                     <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
@@ -182,5 +170,37 @@
             document.getElementById(tabname).classList.add("active-tab");
         }
     </script>
+
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        function openmenu()
+        {
+            sidemenu.style.right = "0";
+        }
+        function closemenu()
+        {
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby_Gr9obWIbLspomEw2i2a3EpouKgu1jlH_7W3UfD7dst9A5HIxmpSQoWPbVVAB8JbWaQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully!"
+            setTimeout(function()
+            {
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
 </body>
 </html>
